@@ -27,10 +27,14 @@ export const getPageContent = async (slug: string) => {
   });
 
   const result = await response.json();
-  return result.data.pageBy;
+  return {
+    content: result.data.pageBy.content,
+    title: result.data.pageBy.title,
+    image: result.data.pageBy.featuredImage?.node.sourceUrl || null,
+  };
 };
 
-export const getProducts = async () => {
+/* export const getProducts = async () => {
   const query = `
     query {
       products {
@@ -68,5 +72,15 @@ export const getProducts = async () => {
   });
 
   const result = await response.json();
-  return result.data.products.nodes;
-};
+  return result.data.products.nodes.map((product: any) => ({
+    id: product.id,
+    name: product.name,
+    description: product.description,
+    image: product.image?.sourceUrl,
+    onSale: product.onSale,
+    price: product.price,
+    regularPrice: product.regularPrice,
+    salePrice: product.salePrice,
+    category: product.productCategories?.nodes[0]?.name || 'Sin categoría',
+  }));
+}; */

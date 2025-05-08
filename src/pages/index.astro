@@ -1,51 +1,29 @@
 ---
+import IndomabiliOnde from '../components/images/IndomabiliOnde.astro';
+import ProductsSection from '../components/vue/ProductsSection.vue';
 import Layout from '../layouts/Layout.astro';
-import { getPageContent, getProducts } from '../lib/wp';
+import { getPageContent } from '../lib/wp';
 
-const pageContent = await getPageContent('home');
-const products = await getProducts();
+const pageContent = await getPageContent('hero');
 
-const { title, content } = pageContent;
-interface ProductType {
-  id: string;
-  name: string;
-  description: string;
-  onSale: boolean;
-  productCategories: {
-    nodes: {
-      name: string;
-    }[];
-  };
-  image: {
-    sourceUrl: string;
-  };
-  regularPrice: number;
-  salePrice: number;
-}
+const { title, content, image } = pageContent;
+console.log(pageContent);
 ---
 
 <Layout>
   <main class="flex flex-col justify-center items-start w-full">
-    <section class="flex w-full h-screen bg-amber-100">
-      <h1 class="text-3xl font-bold text-center">{title}</h1>
+    <section class="flex w-full h-screen bg-[#e2dacf]">
+      <!-- <h1 class="text-3xl font-bold text-center">{title}</h1> -->
+      <div>
+        <IndomabiliOnde />
+      </div>
+      {
+        image && (
+          <img class="w-full max-w-[900px] mx-auto" src={image} alt={title} />
+        )
+      }
       <div class="text-xl mx-auto max-w-[900px]" set:html={content} />
     </section>
-    <section class="flex w-full h-screen bg-amber-900 text-amber-50">
-      <h1 class="text-3xl font-bold text-center">Productos !</h1>
-      {
-        products.map((product: ProductType) => (
-          <div class="flex flex-col items-center justify-center w-[320px] h-full p-10">
-            <img
-              class="w-[100px]"
-              src={product.image.sourceUrl}
-              alt={product.name}
-            />
-            <h2 class="text-xl font-bold">{product.name}</h2>
-            <p class="text-xl" set:html={product.description} />
-            <p class="text-xl" set:html={`Precio: ${product.regularPrice}`} />
-          </div>
-        ))
-      }
-    </section>
+    <ProductsSection client:load />
   </main>
 </Layout>

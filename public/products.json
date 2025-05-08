@@ -1,0 +1,226 @@
+{
+  "products": [
+    {
+      "id": "cG9zdDozMw==",
+      "name": "perro",
+      "description": "<p>si, entendió bien señore! se vende perrito. fiel y limpio. no incluye vacunas</p>\n",
+      "image": "http://localhost:8881/wp-content/uploads/2025/05/IMG_1825-scaled.jpg",
+      "onSale": false,
+      "price": null,
+      "regularPrice": null,
+      "salePrice": null,
+      "categoryIds": [
+        "dGVybTozMg=="
+      ],
+      "subcategoryIds": [
+        "dGVybTozNg=="
+      ]
+    },
+    {
+      "id": "cG9zdDoyMQ==",
+      "name": "cuaderno A3",
+      "description": "<p>Este es otro cuaderno que es diferente del A1&#8230; la principal diferencia es que este es el A3, en realidad es la única diferencia porque nada de todo esto existe, estoy inventando données para ver si funciona esto viste&#8230;</p>\n",
+      "image": "http://localhost:8881/wp-content/uploads/2025/05/00160-3628007969-Portrait-of-facudev-propaganda-poster-style-cup-of-tea-and-red-square-stenberg-brothers.png",
+      "onSale": true,
+      "price": "4,20&nbsp;€",
+      "regularPrice": "6,00&nbsp;€",
+      "salePrice": "4,20&nbsp;€",
+      "categoryIds": [
+        "dGVybToyMw=="
+      ],
+      "subcategoryIds": [
+        "dGVybToyNg=="
+      ]
+    },
+    {
+      "id": "cG9zdDoxOQ==",
+      "name": "cuaderno A1",
+      "description": "<p>Este es un muy bonito cuadernito claro que sí señora soñore, lloren chiques lloren</p>\n",
+      "image": "http://localhost:8881/wp-content/uploads/2025/05/00157-1651657690-Portrait-of-facudev-propaganda-poster-style-cup-of-tea-and-red-square-stenberg-brothers.png",
+      "onSale": true,
+      "price": "3,80&nbsp;€",
+      "regularPrice": "5,00&nbsp;€",
+      "salePrice": "3,80&nbsp;€",
+      "categoryIds": [
+        "dGVybToyMw=="
+      ],
+      "subcategoryIds": [
+        "dGVybTozMA=="
+      ]
+    },
+    {
+      "id": "cG9zdDoyMw==",
+      "name": "bolsita canchera",
+      "description": "<p>Una bolsita canchera con toda la onda.</p>\n",
+      "image": "http://localhost:8881/wp-content/uploads/2025/05/IMG_2364-scaled.jpg",
+      "onSale": true,
+      "price": "299,99&nbsp;€",
+      "regularPrice": "300,00&nbsp;€",
+      "salePrice": "299,99&nbsp;€",
+      "categoryIds": [
+        "dGVybTozMQ=="
+      ],
+      "subcategoryIds": []
+    },
+    {
+      "id": "cG9zdDozMQ==",
+      "name": "bolsa 3d",
+      "description": "<p>una bosa en tres dimensiones, <strong>si señora</strong>, escuchó bien, ni dos ni cuatro, sino tres, sí, tras dimensiones!!</p>\n",
+      "image": "http://localhost:8881/wp-content/uploads/2025/05/IMG-20180210-WA0002.jpg",
+      "onSale": false,
+      "price": null,
+      "regularPrice": null,
+      "salePrice": null,
+      "categoryIds": [
+        "dGVybTozMQ=="
+      ],
+      "subcategoryIds": []
+    }
+  ],
+  "categories": [
+    {
+      "id": "dGVybTozMg==",
+      "name": "Altro",
+      "slug": "altro",
+      "description": "Acá iría una linda descripción de la categoría Altro. Pongan algo lindo para presentar la categoría!",
+      "image": null,
+      "productCount": 1,
+      "subcategories": [
+        {
+          "id": "dGVybTozNQ==",
+          "name": "Biglietti di auguri",
+          "slug": "biglietti-di-auguri",
+          "description": "Acá iría una linda descripción de la sub categoría. Pongan algo lindo para presentar la categoría!",
+          "image": null,
+          "productCount": 0
+        },
+        {
+          "id": "dGVybTozNA==",
+          "name": "Cartoline",
+          "slug": "cartoline",
+          "description": "Acá iría una linda descripción de la sub categoría. Pongan algo lindo para presentar la categoría!",
+          "image": null,
+          "productCount": 0
+        },
+        {
+          "id": "dGVybTozMw==",
+          "name": "Segnalibri",
+          "slug": "segnalibri",
+          "description": "Acá iría una linda descripción de la sub categoría. Pongan algo lindo para presentar la categoría!",
+          "image": null,
+          "productCount": 0
+        },
+        {
+          "id": "dGVybTozNg==",
+          "name": "Spille",
+          "slug": "spille",
+          "description": "Acá iría una linda descripción de la sub categoría. Pongan algo lindo para presentar la categoría!",
+          "image": null,
+          "productCount": 1
+        }
+      ]
+    },
+    {
+      "id": "dGVybToyMQ==",
+      "name": "Incisioni originali",
+      "slug": "incisioni-originali",
+      "description": "Acá iría una linda descripción de la categoría Incisioni originali. Pongan algo lindo para presentar la categoría!",
+      "image": "http://localhost:8881/wp-content/uploads/2025/05/00160-3628007969-Portrait-of-facudev-propaganda-poster-style-cup-of-tea-and-red-square-stenberg-brothers.png",
+      "productCount": 0,
+      "subcategories": []
+    },
+    {
+      "id": "dGVybToxOA==",
+      "name": "Sin categorizar",
+      "slug": "sin-categorizar",
+      "description": null,
+      "image": null,
+      "productCount": 0,
+      "subcategories": []
+    },
+    {
+      "id": "dGVybToyMg==",
+      "name": "Stampe",
+      "slug": "stampe",
+      "description": "Acá iría una linda descripción de la categoría Stampe. Pongan algo lindo para presentar la categoría!",
+      "image": "http://localhost:8881/wp-content/uploads/2025/05/00157-1651657690-Portrait-of-facudev-propaganda-poster-style-cup-of-tea-and-red-square-stenberg-brothers.png",
+      "productCount": 0,
+      "subcategories": []
+    },
+    {
+      "id": "dGVybToyMw==",
+      "name": "Taccuini",
+      "slug": "taccuini",
+      "description": "Acá iría una linda descripción de la categoría taccuini. Pongan algo lindo para presentar la categoría!",
+      "image": null,
+      "productCount": 2,
+      "subcategories": [
+        {
+          "id": "dGVybToyNQ==",
+          "name": "Linea Acquerello",
+          "slug": "linea-acquerello",
+          "description": "Acá iría una linda descripción de la sub categoría. Pongan algo lindo para presentar la categoría!",
+          "image": null,
+          "productCount": 0
+        },
+        {
+          "id": "dGVybToyNg==",
+          "name": "Linea Alga",
+          "slug": "linea-alga",
+          "description": "Acá iría una linda descripción de la sub categoría. Pongan algo lindo para presentar la categoría!",
+          "image": null,
+          "productCount": 1
+        },
+        {
+          "id": "dGVybToyOQ==",
+          "name": "Linea Brezza",
+          "slug": "linea-brezza",
+          "description": "Acá iría una linda descripción de la sub categoría. Pongan algo lindo para presentar la categoría!",
+          "image": null,
+          "productCount": 0
+        },
+        {
+          "id": "dGVybTozMA==",
+          "name": "Linea Pop",
+          "slug": "linea-pop",
+          "description": "Acá iría una linda descripción de la sub categoría. Pongan algo lindo para presentar la categoría!",
+          "image": null,
+          "productCount": 1
+        },
+        {
+          "id": "dGVybToyOA==",
+          "name": "Linea Sabbia",
+          "slug": "linea-sabbia",
+          "description": "Acá iría una linda descripción de la sub categoría. Pongan algo lindo para presentar la categoría!",
+          "image": null,
+          "productCount": 0
+        },
+        {
+          "id": "dGVybToyNw==",
+          "name": "Linea Trame",
+          "slug": "linea-trame",
+          "description": "Acá iría una linda descripción de la sub categoría. Pongan algo lindo para presentar la categoría!",
+          "image": null,
+          "productCount": 0
+        },
+        {
+          "id": "dGVybToyNA==",
+          "name": "Linea Viaggio",
+          "slug": "linea-viaggio",
+          "description": "Acá iría una linda descripción de la sub categoría. Pongan algo lindo para presentar la categoría!",
+          "image": null,
+          "productCount": 0
+        }
+      ]
+    },
+    {
+      "id": "dGVybTozMQ==",
+      "name": "Tote bag",
+      "slug": "tote-bag",
+      "description": "Acá iría una linda descripción de la categoría Tote bag. Pongan algo lindo para presentar la categoría!",
+      "image": "http://localhost:8881/wp-content/uploads/2025/05/00160-3628007969-Portrait-of-facudev-propaganda-poster-style-cup-of-tea-and-red-square-stenberg-brothers.png",
+      "productCount": 2,
+      "subcategories": []
+    }
+  ]
+}
