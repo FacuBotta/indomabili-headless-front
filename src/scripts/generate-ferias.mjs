@@ -33,6 +33,11 @@ async function fetchGraphQLData() {
   return result.data;
 }
 
+function extractIframeSrc(iframeHtml) {
+  const match = iframeHtml.match(/src="([^"]+)"/);
+  return match ? match[1] : null;
+}
+
 function transformData(data) {
   const rawFerias = data.ferias.nodes;
 
@@ -41,7 +46,7 @@ function transformData(data) {
       id: f.id,
       title: f.title,
       description: f.acf.description,
-      adresse: f.acf.adresse,
+      adresse: extractIframeSrc(f.acf.adresse),
       date: f.acf.fecha,
     };
   });
@@ -66,7 +71,7 @@ async function generate() {
       'utf-8'
     );
 
-    console.log('✅ products.json generado con éxito.');
+    console.log('✅ ferias.json generado con éxito.');
   } catch (err) {
     console.error('❌ Error al generar products.json:', err);
     process.exit(1);
