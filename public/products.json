@@ -1,6 +1,20 @@
 {
   "products": [
     {
+      "id": "cG9zdDo0Mw==",
+      "name": "super cuaderno 3000",
+      "description": null,
+      "image": "http://localhost:8881/wp-content/uploads/2025/05/00160-3628007969-Portrait-of-facudev-propaganda-poster-style-cup-of-tea-and-red-square-stenberg-brothers.png",
+      "onSale": false,
+      "price": null,
+      "regularPrice": null,
+      "salePrice": null,
+      "categoryIds": [
+        "dGVybToxOA=="
+      ],
+      "subcategoryIds": []
+    },
+    {
       "id": "cG9zdDozMw==",
       "name": "perro",
       "description": "<p>si, entendió bien señore! se vende perrito. fiel y limpio. no incluye vacunas</p>\n",
@@ -135,7 +149,7 @@
       "slug": "sin-categorizar",
       "description": null,
       "image": null,
-      "productCount": 0,
+      "productCount": 1,
       "subcategories": []
     },
     {

@@ -1,1 +1,17 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-teal-mosaic: #416c7c;
+  --color-stormy-ridge: #4e8197;
+  --color-botticelli: #90aaab;
+  --color-bone: #e2dacf;
+  --color-white-custom: #fff4f0;
+  --color-golden-yellow: #ffc24a;
+  --color-aqua: #91cdc6;
+  --color-bright-peach: #ff985d;
+
+  --font-title: 'Tenor Sans', sans-serif;
+  --font-text: 'Questrial', sans-serif;
+}

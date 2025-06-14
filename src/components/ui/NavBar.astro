@@ -1,0 +1,127 @@
+---
+
+---
+
+<header
+  id="navbar-header"
+  class="navbar-circle fixed z-30 top-0 right-0 transition-all duration-500 ease-in-out navbar-closed bg-bright-peach"
+>
+  <div class="navbar-svg" id="navbar-toggle">
+    <svg
+      id="Menu_24"
+      class="w-[35px]"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      ><rect width="24" height="24" stroke="none" fill="#000000" opacity="0"
+      ></rect>
+
+      <g transform="matrix(0.5 0 0 0.5 12 12)">
+        <path
+          style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"
+          transform=" translate(-24, -24)"
+          d="M 6 9 C 5.278728166844862 8.98979942090903 4.607837270856786 9.368750592338664 4.244224557026966 9.991745699428662 C 3.880611843197145 10.61474080651866 3.8806118431971455 11.385259193481343 4.244224557026967 12.008254300571341 C 4.607837270856788 12.631249407661338 5.278728166844863 13.01020057909097 6.000000000000002 13 L 42 13 C 42.721271833155136 13.01020057909097 43.392162729143216 12.631249407661336 43.75577544297303 12.00825430057134 C 44.119388156802856 11.38525919348134 44.119388156802856 10.61474080651866 43.75577544297303 9.991745699428662 C 43.392162729143216 9.368750592338664 42.721271833155136 8.98979942090903 42 9 L 6 9 z M 6 22 C 5.278728166844862 21.98979942090903 4.607837270856786 22.368750592338664 4.244224557026966 22.991745699428662 C 3.880611843197145 23.61474080651866 3.8806118431971455 24.385259193481343 4.244224557026967 25.00825430057134 C 4.607837270856788 25.631249407661336 5.278728166844863 26.01020057909097 6.000000000000002 26 L 42 26 C 42.721271833155136 26.01020057909097 43.392162729143216 25.631249407661336 43.75577544297303 25.008254300571338 C 44.119388156802856 24.385259193481343 44.119388156802856 23.61474080651866 43.75577544297303 22.991745699428662 C 43.392162729143216 22.368750592338664 42.721271833155136 21.98979942090903 42 22 L 6 22 z M 6 35 C 5.278728166844862 34.98979942090903 4.607837270856786 35.368750592338664 4.244224557026966 35.99174569942866 C 3.880611843197145 36.61474080651866 3.8806118431971455 37.385259193481346 4.244224557026967 38.00825430057134 C 4.607837270856788 38.631249407661336 5.278728166844863 39.01020057909097 6.000000000000002 39 L 42 39 C 42.721271833155136 39.01020057909097 43.392162729143216 38.631249407661336 43.75577544297303 38.00825430057134 C 44.119388156802856 37.38525919348134 44.119388156802856 36.61474080651866 43.75577544297303 35.99174569942866 C 43.392162729143216 35.368750592338664 42.721271833155136 34.98979942090903 42 35 L 6 35 z"
+          stroke-linecap="round"></path>
+      </g>
+    </svg>
+  </div>
+  <nav class="navbar-menu">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#noi">Noi</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#boutique">Boutique</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .navbar-circle {
+    border-radius: 50%;
+    position: fixed;
+    cursor: pointer;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    transition: all 0.5s;
+    overflow: hidden;
+  }
+  .navbar-open .navbar-svg {
+    opacity: 0;
+  }
+  .navbar-closed {
+    width: 150px;
+    height: 150px;
+    top: -75px;
+    right: -75px;
+  }
+  .navbar-svg {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+  }
+  .navbar-open {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    border-radius: 0;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bright-peach);
+  }
+  .navbar-menu {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s;
+    z-index: 1;
+  }
+  .navbar-open .navbar-menu {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .navbar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  .navbar-menu li {
+    font-size: 2rem;
+    color: #fff;
+    margin: 1.5rem 0;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .navbar-menu li:hover {
+    color: #000;
+  }
+</style>
+
+<script>
+  const header = document.getElementById('navbar-header');
+  const toggle = document.getElementById('navbar-toggle');
+  if (header && toggle) {
+    header.addEventListener('click', function (e) {
+      e.stopPropagation();
+      header.classList.toggle('navbar-open');
+      header.classList.toggle('navbar-closed');
+    });
+    // Opcional: cerrar el menú al hacer click fuera
+    /* document.addEventListener('click', function (e) {
+      if (
+        header.classList.contains('navbar-open') &&
+        !header.contains(e.target)
+      ) {
+        header.classList.remove('navbar-open');
+        header.classList.add('navbar-closed');
+      }
+    }); */
+  }
+</script>

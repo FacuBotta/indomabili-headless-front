@@ -1,0 +1,18 @@
+{
+  "ferias": [
+    {
+      "id": "cG9zdDo2NA==",
+      "title": "otra feria",
+      "description": "otra feria loca",
+      "adresse": "41.89634852810281, 12.481603763171293",
+      "date": "2025-06-20T00:00:00+00:00"
+    },
+    {
+      "id": "cG9zdDo2Mw==",
+      "title": "feria de la casa del prupso",
+      "description": "casa del prupso",
+      "adresse": "43.620359076046455, 3.873352840914583",
+      "date": "2025-06-10T00:00:00+00:00"
+    }
+  ]
+}

@@ -1,29 +1,14 @@
 ---
-import IndomabiliOnde from '../components/images/IndomabiliOnde.astro';
-import ProductsSection from '../components/vue/ProductsSection.vue';
+import About from '../components/sections/About.astro';
+import Hero from '../components/sections/Hero.astro';
 import Layout from '../layouts/Layout.astro';
-import { getPageContent } from '../lib/wp';
-
-const pageContent = await getPageContent('hero');
-
-const { title, content, image } = pageContent;
-console.log(pageContent);
 ---
 
 <Layout>
   <main class="flex flex-col justify-center items-start w-full">
-    <section class="flex w-full h-screen bg-[#e2dacf]">
-      <!-- <h1 class="text-3xl font-bold text-center">{title}</h1> -->
-      <div>
-        <IndomabiliOnde />
-      </div>
-      {
-        image && (
-          <img class="w-full max-w-[900px] mx-auto" src={image} alt={title} />
-        )
-      }
-      <div class="text-xl mx-auto max-w-[900px]" set:html={content} />
-    </section>
-    <ProductsSection client:load />
+    <Hero />
+    <About />
+    <!-- <Faq /> -->
+    <!-- <ProductsSection client:load /> -->
   </main>
 </Layout>
