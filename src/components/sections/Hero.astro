@@ -1,28 +1,29 @@
 ---
-import { getPageContent } from '../../lib/wp';
 import IndomabiliOnde from '../images/IndomabiliOnde.astro';
 import Olas from '../images/Olas.astro';
+import { pagesData } from '../../data/pages.json';
 
-const pageContent = await getPageContent('hero');
+const pageContent = pagesData.find((p) => p.slug === 'hero');
 
+if (!pageContent) {
+  throw new Error('Page content not found');
+}
 const { content } = pageContent;
 ---
 
 <section
   id="home"
-  class="container-fade-animation relative flex justify-center items-center sm:items-start sm:pt-14 xl:pt-32 w-full h-[100dvh] bg-white-custom"
+  class="main-section relative flex justify-center items-start pt-32 h-[100dvh] bg-white-custom"
 >
-  <div
-    class="fade-element-in-viewport flex justify-center items-center flex-wrap sm:flex-nowrap w-full m-auto p-2 sm:px-20 gap-10 fixed z-0"
-  >
-    <div class="w-full max-w-[600px] h-fit -mt-14">
+  <div class="section-card fixed z-0">
+    <div class="h-fit -mt-14">
       <IndomabiliOnde />
       <div
         class="text-sm sm:text-xl mx-auto pl-2 sm:pl-20 text-center sm:text-left"
         set:html={content}
       />
     </div>
-    <div class="w-full max-w-[600px] h-fit sm:pt-14">
+    <div class="h-fit sm:pt-14">
       <h1 class="font-title text-2xl">Próximas ferias</h1>
       <ul class="font-text ml-10 mb-5 list-disc">
         <li>23 de octubre de 2022 | Via bolaso falso 231</li>
@@ -42,3 +43,22 @@ const { content } = pageContent;
     <Olas />
   </div>
 </section>
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#home',
+      start: 'top-=200 top',
+      end: '+=120%',
+      scrub: 1,
+    },
+  });
+  tl.to('#home .section-card', {
+    opacity: 0,
+    duration: 0.05,
+    ease: 'power3.inOut',
+  });
+</script>

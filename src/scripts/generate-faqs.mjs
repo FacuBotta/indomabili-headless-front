@@ -2,21 +2,18 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import path from 'path';
 
-const OUTPUT_PATH = path.resolve('./public/ferias.json');
+const OUTPUT_PATH = path.resolve('./src/data/faqs.json');
 
 const query = `
   query {
-    ferias {
-    nodes {
-      id
-      title
-      acf {
-        adresse
-        fecha
-        description
+    faqs {
+      nodes {
+        faqItem {
+          domande
+          risponsa
+        }
       }
     }
-  }
   }
 `;
 
@@ -33,32 +30,24 @@ async function fetchGraphQLData() {
   return result.data;
 }
 
-function extractIframeSrc(iframeHtml) {
-  const match = iframeHtml.match(/src="([^"]+)"/);
-  return match ? match[1] : null;
-}
-
 function transformData(data) {
-  const rawFerias = data.ferias.nodes;
+  const rawFaqs = data.faqs.nodes;
 
-  const ferias = rawFerias.map((f) => {
+  const faqs = rawFaqs.map((f) => {
     return {
-      id: f.id,
-      title: f.title,
-      description: f.acf.description,
-      adresse: extractIframeSrc(f.acf.adresse),
-      date: f.acf.fecha,
+      question: f.faqItem.domande,
+      answer: f.faqItem.risponsa,
     };
   });
 
   return {
-    ferias,
+    faqs,
   };
 }
 
 async function generate() {
   try {
-    console.log('📡 Fetching ferias data from WordPress...');
+    console.log('📡 Fetching faqs data from WordPress...');
     const data = await fetchGraphQLData();
 
     console.log('🔧 Transforming data...');
@@ -71,9 +60,9 @@ async function generate() {
       'utf-8'
     );
 
-    console.log('✅ ferias.json generado con éxito.');
+    console.log('✅ faqs.json generado con éxito.');
   } catch (err) {
-    console.error('❌ Error al generar ferias.json:', err);
+    console.error('❌ Error al generar faqs.json:', err);
     process.exit(1);
   }
 }

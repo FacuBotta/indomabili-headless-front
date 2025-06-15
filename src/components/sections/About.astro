@@ -1,8 +1,12 @@
 ---
-import { getPageContent } from '../../lib/wp';
+import { pagesData } from '../../data/pages.json';
 import Map from '../vue/Map.vue';
 
-const pageContent = await getPageContent('noi-text-description');
+const pageContent = pagesData.find((p) => p.slug === 'noi-text-description');
+
+if (!pageContent) {
+  throw new Error('Page content not found');
+}
 
 const { content } = pageContent;
 const textContent = content.replace(/<figure[\s\S]*?<\/figure>/, '').trim();
@@ -13,53 +17,48 @@ const imgSrc = imgMatch ? imgMatch[1] : null;
 
 <section
   id="noi"
-  class="about-container relative z-10 w-full bg-botticelli pt-36 px-20 text-white"
+  class="about-container main-section relative z-10 bg-botticelli pt-36 text-white"
 >
+  <!-- WRAPPER -->
   <div class="h-[220vh] relative">
     <div
       class="sticky top-0 mx-auto w-full max-w-[1000px] h-screen flex justify-center items-center"
     >
-      <div id="noi-text" class="flex gap-10 w-full flex-wrap sm:flex-nowrap">
+      <!-- FIRST CARD -->
+      <div id="noi-text" class="section-card">
         <div>
-          <h1
-            class="font-title text-3xl underline underline-offset-2 decoration-bright-peach"
-          >
-            Noi
-          </h1>
-          <div
-            set:html={textContent}
-            class="slide-element-in-viewport sm:w-1/2"
-          />
+          <h1 class="section-title">Noi</h1>
+          <div set:html={textContent} class="text-2xl" />
         </div>
-        <img
-          src={imgSrc}
-          alt="noi"
-          class="w-full max-w-[300px] border-4 border-white"
-        />
+        <img src={imgSrc} alt="noi" class="border-4 border-white" />
       </div>
       <div
         id="mapa"
         class="absolute z-30 hidden w-full opacity-0 pointer-events-none scale-105"
       >
+        <!-- SECOND CARD - class is in the Map.vue component -->
         <Map client:only />
       </div>
     </div>
   </div>
 </section>
 <style>
+  /* Little gradient to attach the SVG nicely in the top of the section */
   section.about-container {
+    margin-top: -20px;
     background: linear-gradient(
       to bottom,
       rgba(78, 129, 151, 0) 0%,
-      rgba(78, 129, 151, 1) 30px
+      rgba(78, 129, 151, 1) 20px
     );
   }
-  @media (width <= 640px) {
+
+  @media (width >= 640px) {
     section.about-container {
       background: linear-gradient(
         to bottom,
         rgba(78, 129, 151, 0) 0%,
-        rgba(78, 129, 151, 1) 2%
+        rgba(78, 129, 151, 1) 30px
       );
     }
   }
@@ -74,6 +73,7 @@ const imgSrc = imgMatch ? imgMatch[1] : null;
     { scale: 1 },
     {
       scale: 0.95,
+      translateY: '-100px',
       borderRadius: '0 0 50px 50px',
       ease: 'power3.inOut',
       scrollTrigger: {

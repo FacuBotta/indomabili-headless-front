@@ -1,9 +1,92 @@
 ---
-
+import { faqs } from '../../data/faqs.json';
 ---
 
-<section
-  id="faq"
-  class="relative flex flex-wrap w-full h-screen bg-white-custom"
->
+<section id="faq" class="main-section h-screen bg-white-custom">
+  <div
+    class="relative w-full flex flex-col items-start justify-center pt-5 pb-20 max-w-content mx-auto"
+  >
+    <h1 class="section-title mb-5">FAQ</h1>
+
+    <div class="w-full h-full flex flex-col gap-2 items-start justify-start">
+      {
+        faqs.map((faqItem, index: number) => (
+          <button
+            class="faq-item w-full max-w-[900px] desktop:max-w-[1200px] mx-auto  text-lg desktop:text-3xl rounded-md hover:scale-101 transition-all overflow-hidden text-left"
+            data-index={index}
+            aria-label="faq item"
+          >
+            <div class="faq-question underline underline-offset-2 decoration-botticelli text-2xl desktop:text-4xl font-bold text-primary-white cursor-pointer px-2 py-4">
+              {faqItem.question}
+            </div>
+            <div class="faq-answer px-4 text-primary-white transition-[max-height] duration-500 ease-in-out overflow-hidden max-h-0">
+              <p class="py-4">{faqItem.answer}</p>
+            </div>
+          </button>
+        ))
+      }
+    </div>
+    <!-- <div class="flex flex-col w-full justify-center items-center">
+      <p class="text-3xl">{t('faq.callToAction')}</p>
+      <Button class="mt-[80px]" variant="primary-yellow">
+        <a
+          href="#contact"
+          class="text-2xl hover:!text-primary-black"
+          style="color: black"
+          aria-label="contact">{t('home.hero.btn')}</a
+        >
+      </Button>
+    </div> -->
+  </div>
 </section>
+<script>
+  function initFaq() {
+    const items = document.querySelectorAll('.faq-item');
+
+    items.forEach((item) => {
+      const question = item.querySelector('.faq-question') as HTMLElement;
+      const answer = item.querySelector('.faq-answer') as HTMLElement;
+
+      answer.style.maxHeight = '0px';
+
+      const toggle = () => {
+        const isOpen = answer.style.maxHeight !== '0px';
+
+        items.forEach((otherItem) => {
+          const otherAnswer = otherItem.querySelector(
+            '.faq-answer'
+          ) as HTMLElement;
+          if (otherAnswer && otherAnswer !== answer) {
+            otherAnswer.style.maxHeight = '0px';
+          }
+        });
+
+        if (isOpen) {
+          answer.style.maxHeight = '0px';
+        } else {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      };
+
+      question.addEventListener('click', () => {
+        toggle();
+      });
+      // Teclado: Enter (13) o Space (32)
+      (item as HTMLButtonElement).addEventListener(
+        'keydown',
+        (e: KeyboardEvent) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle();
+          }
+        }
+      );
+    });
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    initFaq();
+  });
+  document.addEventListener('astro:after-swap', () => {
+    initFaq();
+  });
+</script>
