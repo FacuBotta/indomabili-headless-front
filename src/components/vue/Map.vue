@@ -1,11 +1,7 @@
 <template>
-  <div class="flex items-start justify-between gap-10 flex-wrap sm:flex-nowrap">
+  <div class="section-card">
     <div>
-      <h1
-        class="font-title text-3xl underline underline-offset-2 decoration-bright-peach"
-      >
-        Dove trovare noi?
-      </h1>
+      <h1 class="section-title">Dove trovare noi?</h1>
       <ul class="font-text ml-10 mb-5 list-disc">
         <li
           v-for="feria in allFerias"
@@ -20,14 +16,12 @@
     </div>
 
     <div
-      class="w-full max-w-[600px] border-2 border-white rounded-lg overflow-hidden bg-white/50"
+      class="w-full max-w-[500px] border-2 border-white rounded-lg overflow-hidden bg-white/50"
     >
       <iframe
         :key="iframeSrc"
         :src="iframeSrc"
-        width="600"
-        height="450"
-        class=""
+        class="w-full max-w-[500px] h-[450px]"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>

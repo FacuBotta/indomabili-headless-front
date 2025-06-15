@@ -5,7 +5,8 @@
   "scripts": {
     "generate:products": "node src/scripts/generate-products.mjs",
     "generate:ferias": "node src/scripts/generate-ferias.mjs",
-    "seed": "npm run generate:products && npm run generate:ferias",
+    "generate:faqs": "node src/scripts/generate-faqs.mjs",
+    "seed": "npm run generate:products && npm run generate:ferias && npm run generate:faqs",
     "dev": "astro dev --host",
     "build": "npm run generate:products && npm run build",
     "preview": "astro preview",
