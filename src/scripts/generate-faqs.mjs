@@ -1,6 +1,6 @@
 import fs from 'fs';
-import fetch from 'node-fetch';
 import path from 'path';
+import { fetchGraphQLData } from './data-fetcher.mjs';
 
 const OUTPUT_PATH = path.resolve('./src/data/faqs.json');
 
@@ -16,19 +16,6 @@ const query = `
     }
   }
 `;
-
-async function fetchGraphQLData() {
-  const response = await fetch('http://localhost:8881/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ query }),
-  });
-
-  const result = await response.json();
-  return result.data;
-}
 
 function transformData(data) {
   const rawFaqs = data.faqs.nodes;
@@ -48,7 +35,7 @@ function transformData(data) {
 async function generate() {
   try {
     console.log('📡 Fetching faqs data from WordPress...');
-    const data = await fetchGraphQLData();
+    const data = await fetchGraphQLData(query);
 
     console.log('🔧 Transforming data...');
     const structuredData = transformData(data);

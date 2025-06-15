@@ -9,7 +9,7 @@
     "generate:pages": "node src/scripts/generate-page-content.mjs",
     "seed": "npm run generate:products && npm run generate:ferias && npm run generate:faqs && npm run generate:pages",
     "dev": "astro dev --host",
-    "build": "npm run seed && npm run build",
+    "build": "npm run seed && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -17,6 +17,7 @@
     "@astrojs/vue": "^5.1.0",
     "@tailwindcss/vite": "^4.1.5",
     "astro": "^5.8.2",
+    "dotenv": "^16.5.0",
     "gsap": "^3.13.0",
     "tailwindcss": "^4.1.5",
     "vue": "^3.5.13"

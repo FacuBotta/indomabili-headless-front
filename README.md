@@ -13,3 +13,5 @@ The `scripts/` folder contains the scripts that fetch the data from WordPress an
 
 To seed the data, run `npm run seed` in the root folder.
 Or run `npm run generate: < dataToFetch >` to generate a specific data file.
+
+All data is fetched and formatted in build time.

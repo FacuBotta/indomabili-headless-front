@@ -1,11 +1,6 @@
 import fs from 'fs';
-import fetch from 'node-fetch';
 import path from 'path';
-
-// TODO: Use environment variable for domain
-
-// const domain = import.meta.env.WP_DOMAIN;
-const domain = 'http://localhost:8881/graphql';
+import { fetchGraphQLData } from './data-fetcher.mjs';
 
 const OUTPUT_PATH = path.resolve('./src/data/pages.json');
 
@@ -26,43 +21,33 @@ const query = `
 
 const pagesToFetch = ['hero', 'noi-text-description'];
 
-const fetchPageContent = async (slug) => {
-  const response = await fetch(`${domain}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query,
-      variables: { slug },
-    }),
+function transformData(data) {
+  const pagesData = data.map((p) => {
+    return {
+      slug: p.pageBy.slug,
+      title: p.pageBy.title,
+      content: p.pageBy.content,
+      image: p.pageBy.featuredImage?.node.sourceUrl || null,
+    };
   });
 
-  const result = await response.json();
   return {
-    slug: result.data.pageBy.slug,
-    title: result.data.pageBy.title,
-    content: result.data.pageBy.content,
-    image: result.data.pageBy.featuredImage?.node.sourceUrl || null,
+    pagesData,
   };
-};
+}
 
 async function generate() {
   try {
     console.log('📡 Fetching page content data from WordPress...');
 
-    const pagesData = await Promise.all(
-      pagesToFetch.map((slug) => fetchPageContent(slug))
+    const structuredData = await Promise.all(
+      pagesToFetch.map((slug) => fetchGraphQLData(query, { slug }))
     );
-
     console.log('🔧 Transforming data...');
+    const pagesData = transformData(structuredData);
 
     console.log(`💾 Saving JSON to ${OUTPUT_PATH}`);
-    fs.writeFileSync(
-      OUTPUT_PATH,
-      JSON.stringify({ pagesData }, null, 2),
-      'utf-8'
-    );
+    fs.writeFileSync(OUTPUT_PATH, JSON.stringify(pagesData, null, 2), 'utf-8');
 
     console.log('✅ pages.json generado con éxito.');
   } catch (err) {
