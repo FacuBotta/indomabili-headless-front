@@ -1,8 +1,12 @@
 ---
-import { getPageContent } from '../../lib/wp';
+import { pagesData } from '../../data/pages.json';
 import Map from '../vue/Map.vue';
 
-const pageContent = await getPageContent('noi-text-description');
+const pageContent = pagesData.find((p) => p.slug === 'noi-text-description');
+
+if (!pageContent) {
+  throw new Error('Page content not found');
+}
 
 const { content } = pageContent;
 const textContent = content.replace(/<figure[\s\S]*?<\/figure>/, '').trim();
@@ -69,6 +73,7 @@ const imgSrc = imgMatch ? imgMatch[1] : null;
     { scale: 1 },
     {
       scale: 0.95,
+      translateY: '-100px',
       borderRadius: '0 0 50px 50px',
       ease: 'power3.inOut',
       scrollTrigger: {

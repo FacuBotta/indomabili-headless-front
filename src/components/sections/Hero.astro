@@ -1,10 +1,13 @@
 ---
-import { getPageContent } from '../../lib/wp';
 import IndomabiliOnde from '../images/IndomabiliOnde.astro';
 import Olas from '../images/Olas.astro';
+import { pagesData } from '../../data/pages.json';
 
-const pageContent = await getPageContent('hero');
+const pageContent = pagesData.find((p) => p.slug === 'hero');
 
+if (!pageContent) {
+  throw new Error('Page content not found');
+}
 const { content } = pageContent;
 ---
 

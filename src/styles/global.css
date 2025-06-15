@@ -14,6 +14,10 @@
 
   --font-title: 'Tenor Sans', sans-serif;
   --font-text: 'Questrial', sans-serif;
+
+  --max-width-content: 900px;
+  --max-width-mobile: 600px;
+  --max-width-tablet: 800px;
 }
 
 html,
@@ -31,7 +35,7 @@ html {
 }
 .section-card {
   width: 100%;
-  max-width: 900px;
+  max-width: var(--max-width-content);
   margin: 0 auto;
   display: grid;
   gap: 1rem;

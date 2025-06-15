@@ -1,0 +1,16 @@
+{
+  "pagesData": [
+    {
+      "slug": "hero",
+      "title": "text hero section",
+      "content": "<p>👩 Ambra&amp;Carla 👦<br>✏ Rileghiamo taccuini, incidiamo, disegniamo e scriviamo filastrocche<br>📍Siamo a Siracusa, ma&#8230;<br>🚀 Spediamo ovunque!</p><p></p>",
+      "image": "http://localhost:8881/wp-content/uploads/2025/05/Logo-Indomabili_Onde-vett.png"
+    },
+    {
+      "slug": "noi-text-description",
+      "title": "noi text description",
+      "content": "<p>Encuentra la belleza en lo hecho a mano. Creamos accesorios únicos, llenos de cariño y detalles que te inspirarán. Más texto acá porque ya no se me ocurre nada pero pongan algo lindo.</p><figure class=\"wp-block-image size-full\"><img loading=\"lazy\" decoding=\"async\" width=\"636\" height=\"852\" src=\"http://localhost:8881/wp-content/uploads/2025/06/example_noi.png\" alt=\"\" class=\"wp-image-67\" srcset=\"http://localhost:8881/wp-content/uploads/2025/06/example_noi.png 636w, http://localhost:8881/wp-content/uploads/2025/06/example_noi-224x300.png 224w, http://localhost:8881/wp-content/uploads/2025/06/example_noi-600x804.png 600w\" sizes=\"auto, (max-width: 636px) 100vw, 636px\" /></figure>",
+      "image": null
+    }
+  ]
+}
