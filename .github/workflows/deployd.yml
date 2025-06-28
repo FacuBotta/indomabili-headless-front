@@ -30,8 +30,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Update sitemap dates
-        run: node update-sitemap.cjs
+      # - name: Update sitemap dates
+      #   run: node update-sitemap.cjs
 
       - name: Build the project
         run: npm run build
